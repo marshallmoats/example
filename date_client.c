@@ -6,13 +6,13 @@ void date_prog_1(char *host) {
   char *bin_date_1_arg;
   char **result_2;
   long str_date_1_arg;
-#ifndef DEBUG
+// #ifndef DEBUG
   clnt = clnt_create(host, DATE_PROG, DATE_VERS, "udp");
   if (clnt == NULL) {
     clnt_pcreateerror(host);
     exit(1);
   }
-#endif /* DEBUG */
+// #endif /* DEBUG */
   result_1 = bin_date_1((void *)&bin_date_1_arg, clnt);
   if (result_1 == (long *)NULL) {
     clnt_perror(clnt, "call failed");
@@ -24,9 +24,9 @@ void date_prog_1(char *host) {
     clnt_perror(clnt, "call failed");
   }
   printf("time on host %s = %s\n", host, *result_2);
-#ifndef DEBUG
+// #ifndef DEBUG
   clnt_destroy(clnt);
-#endif /* DEBUG */
+// #endif /* DEBUG */
 }
 int main(int argc, char *argv[]) {
   char *host;
